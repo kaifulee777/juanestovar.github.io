@@ -1,1 +1,360 @@
-Hello World
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Esteban Tovar Ruiz - Currículum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-color: #1a202c; /* Dark blue-gray */
+            background-image: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+        .section-title {
+            font-size: 2.25rem; /* text-4xl */
+            font-weight: 700; /* bold */
+            margin-bottom: 2rem; /* mb-8 */
+            text-align: center;
+            color: #2d3748; /* Cool Gray 800 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure cards in a row have same height */
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+        }
+        .card-content {
+            flex-grow: 1;
+        }
+        .skill-item {
+            background-color: #F7FAFC; /* Cool Gray 50 */
+            border: 1px solid #E2E8F0; /* Cool Gray 200 */
+            padding: 1rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            transition: box-shadow 0.3s ease;
+        }
+        .skill-item:hover {
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-md */
+        }
+        nav a {
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #A0AEC0; /* Cool Gray 400 */
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* semibold */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn-primary {
+            background-color: #4299E1; /* Blue 500 */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #3182CE; /* Blue 600 */
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #4A5568; /* Cool Gray 700 */
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #2D3748; /* Cool Gray 800 */
+            transform: translateY(-2px);
+        }
+        /* Custom scrollbar for Webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4A5568; /* Cool Gray 700 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2D3748; /* Cool Gray 800 */
+        }
+        #messageBox {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2D3748;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #messageBox.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <nav class="bg-gray-900 text-white p-4 fixed w-full z-10 top-0 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">Juan Esteban Tovar R.</a>
+            <div class="space-x-4">
+                <a href="#about" class="hover:text-blue-300">Objetivo</a>
+                <a href="#experience" class="hover:text-blue-300">Experiencia</a>
+                <a href="#skills" class="hover:text-blue-300">Habilidades</a>
+                <a href="#education" class="hover:text-blue-300">Formación</a>
+                <a href="#contact" class="hover:text-blue-300">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-bg text-white pt-32 pb-20 md:pt-40 md:pb-28 text-center">
+        <div class="container mx-auto px-4">
+            <img src="https://placehold.co/150x150/E2E8F0/4A5568?text=JETR" alt="Foto de Juan Esteban Tovar Ruiz" class="w-36 h-36 md:w-48 md:h-48 mx-auto rounded-full object-cover border-4 border-blue-400 shadow-xl mb-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-3">Juan Esteban Tovar Ruiz</h1>
+            <p class="text-xl md:text-2xl text-blue-300 mb-8">Administración de Empresas | Estudiante 5º Semestre</p>
+            <a href="#contact" class="btn btn-primary mr-2">
+                <i class="fas fa-envelope mr-2"></i>Contáctame
+            </a>
+            <a href="Hoja de vida Juan Esteban Tovar Ruiz.pdf" download="CV_Juan_Esteban_Tovar.pdf" class="btn btn-secondary">
+                <i class="fas fa-download mr-2"></i>Descargar CV
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-title">Objetivo Profesional</h2>
+                <div class="max-w-3xl mx-auto text-center text-lg text-gray-700 leading-relaxed">
+                    <p>
+                        Estudiante de quinto semestre de Administración de Empresas, con experiencia en ventas, estrategias digitales, negociación y atención al cliente.
+                    </p>
+                    <p class="mt-4">
+                        Habilidades en prospección, cierre de ventas y fidelización, apoyadas por herramientas digitales para mejorar la conversión y satisfacción del cliente.
+                    </p>
+                    <p class="mt-4">
+                        Apasionado por la excelencia en el servicio y el crecimiento comercial a través de soluciones innovadoras.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-title">Experiencia Laboral</h2>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">Auxiliar de Minería de Datos y Campañas de Venta</h3>
+                            <p class="text-gray-600 font-medium mb-1"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>Vivero Guardian Verde</p>
+                            <p class="text-sm text-gray-500 mb-3">Septiembre 2023 - Septiembre 2024</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                                <li>Segmentación de clientes para campañas de ventas dirigidas.</li>
+                                <li>Optimización de bases de datos para mejorar tasas de conversión.</li>
+                                <li>Estrategias digitales para aumentar el alcance y las ventas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">Líder de Marketing y Ventas</h3>
+                            <p class="text-gray-600 font-medium mb-1"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>Dosze Equipment</p>
+                            <p class="text-sm text-gray-500 mb-3">Septiembre 2023 - Septiembre 2024</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                                <li>Desarrollo de estrategias digitales y tradicionales para ventas.</li>
+                                <li>Manejo de redes sociales y publicidad digital para captación de clientes.</li>
+                                <li>Negociación y cierre de acuerdos comerciales con clientes y proveedores.</li>
+                                <li>Gestión de la experiencia del cliente para mejorar fidelización.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">Auxiliar Logístico</h3>
+                            <p class="text-sm text-gray-500 mb-1">(Experiencia indirecta en ventas y servicio al cliente)</p>
+                            <p class="text-gray-600 font-medium mb-1"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>Audio Sound</p>
+                            <p class="text-sm text-gray-500 mb-3">Marzo 2023 - Agosto 2023</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                                <li>Coordinación en eventos comerciales y promoción de productos.</li>
+                                <li>Gestión de inventario asegurando disponibilidad para ventas.</li>
+                                <li>Atención personalizada al cliente, resolviendo necesidades y dudas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-title">Habilidades Clave</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Negociación y cierre de ventas</h4>
+                        <p class="text-sm text-gray-600">Habilidad para persuadir, generar confianza y concretar acuerdos comerciales.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Marketing y estrategias digitales</h4>
+                        <p class="text-sm text-gray-600">Gestión de redes sociales, email marketing, publicidad digital y e-commerce.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Análisis de datos en ventas</h4>
+                        <p class="text-sm text-gray-600">Uso de Excel, Power BI y Power Query para optimizar estrategias comerciales.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Atención al cliente y fidelización</h4>
+                        <p class="text-sm text-gray-600">Creación de relaciones de valor y experiencia excepcional para el cliente.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Calidad en el servicio</h4>
+                        <p class="text-sm text-gray-600">Resolución de problemas, escucha activa y enfoque en la satisfacción del cliente.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>CRM y automatización</h4>
+                        <p class="text-sm text-gray-600">Experiencia con herramientas de gestión de clientes para optimizar procesos de ventas.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Trabajo en equipo y liderazgo</h4>
+                        <p class="text-sm text-gray-600">Coordinación con equipos multidisciplinarios para lograr objetivos comerciales.</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4 class="font-semibold text-lg mb-1 text-blue-700"><i class="fas fa-check-circle text-green-500 mr-2"></i>Uso a profundidad de IA</h4>
+                        <p class="text-sm text-gray-600">En los campos de Segmentación de Datos, Canva, investigación de nichos y analítica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-title">Formación Académica</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">Administración de Empresas</h3>
+                            <p class="text-gray-600 font-medium mb-1">Universidad de Cundinamarca</p>
+                            <p class="text-sm text-gray-500">Agosto 2022 - Actualidad (5º Semestre)</p>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <div class="card-content">
+                            <h3 class="text-xl font-semibold text-blue-600 mb-2">Bachiller Académico</h3>
+                            <p class="text-gray-600 font-medium mb-1">Colegio La Presentación Girardot</p>
+                            <p class="text-sm text-gray-500">2014 - 2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Interesado en conectar?</h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Estoy siempre abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex items-center p-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-envelope text-blue-300 text-2xl mr-3"></i>
+                        <div>
+                            <p class="font-semibold">Email</p>
+                            <a href="mailto:jesteban.tovar.r@gmail.com" id="emailLink" class="text-blue-300 hover:text-blue-200 break-all">jesteban.tovar.r@gmail.com</a>
+                            <button onclick="copyToClipboard('jesteban.tovar.r@gmail.com', 'Email copiado')" class="ml-2 text-sm text-gray-400 hover:text-white" title="Copiar email">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-phone-alt text-blue-300 text-2xl mr-3"></i>
+                        <div>
+                            <p class="font-semibold">Teléfono</p>
+                            <a href="tel:+573223676084" id="phoneLink" class="text-blue-300 hover:text-blue-200">+57 322 3676084</a>
+                             <button onclick="copyToClipboard('+573223676084', 'Teléfono copiado')" class="ml-2 text-sm text-gray-400 hover:text-white" title="Copiar teléfono">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-center p-6">
+        <p>&copy; <span id="currentYear"></span> Juan Esteban Tovar Ruiz. Todos los derechos reservados.</p>
+        <p class="text-sm">Diseñado con <i class="fas fa-heart text-red-500"></i> y Tailwind CSS.</p>
+    </footer>
+
+    <div id="messageBox"></div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                // For the "Objetivo" link, ensure it scrolls to the "about" section
+                const actualTargetId = (targetId === '#objetivo') ? '#about' : targetId;
+                const targetElement = document.querySelector(actualTargetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Function to show message
+        function showMessage(message) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.classList.add('show');
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 2000); // Message shown for 2 seconds
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text, message) {
+            // Create a temporary textarea element
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy'); // Use execCommand for broader compatibility in iFrames
+                showMessage(message || 'Copiado al portapapeles');
+            } catch (err) {
+                console.error('Error al copiar:', err);
+                showMessage('Error al copiar');
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
+
+</body>
+</html>
+
